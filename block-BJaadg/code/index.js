@@ -97,7 +97,7 @@ quote.lastIndexOf("a");
 14. Find the second last index of letter "a" in quote.
 */
 
-quote.lastIndexOf("a", quote.lastIndexOf("a") + 1);
+quote.lastIndexOf("a", quote.lastIndexOf("a") - 1);
 
 /*
 15. Make the quote 70 character long. If it has less characters add rest as .......

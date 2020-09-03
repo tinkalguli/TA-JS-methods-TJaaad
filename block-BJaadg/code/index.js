@@ -32,16 +32,9 @@ console.log(`The index of first is in quote is ${indexOfIs}`);
   The character at index 5 is ' '
 */
 
-console.log(
-  `
-  The character at index 0 is '${quote.charAt(0)}'
-  The character at index 1 is '${quote.charAt(1)}'
-  The character at index 2 is '${quote.charAt(2)}'
-  The character at index 3 is '${quote.charAt(3)}'
-  The character at index 4 is '${quote.charAt(4)}'
-  The character at index 5 is '${quote.charAt(5)}'
-  `
-)
+for (let i = 0; i <= 5; i++) {
+  console.log(`The character at index ${i} is '${quote.charAt(i)}'`);
+}
 
 /*
 5. Using the variable from , to and quote variable dispaly this message

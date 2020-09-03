@@ -79,7 +79,7 @@ let quoteSplitted = quote.split(" ");
 11. Change the word "today" in quoteSplitted to "tomorrow" and join all the words to form a sentance.
 */
 
-quoteSplitted.splice(quoteSplitted.indexOf("today"), 1, "tomorrow").join(" ");
+quoteSplitted.map(e => e === "today" ? "tomorrow" : e ).join(" ");
 
 /*
 12. Find the index of second "o" in quote. Use indexOf

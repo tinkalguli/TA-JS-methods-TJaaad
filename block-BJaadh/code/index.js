@@ -40,7 +40,7 @@ numbers.every(e => e % 3 === 0);
 
 // -  Sort Array from smallest to largest
 
-// numbers.sort((a, b) => a - b);
+[...numbers].sort((a, b) => a - b);
 
 // - Remove the last word in strings
 

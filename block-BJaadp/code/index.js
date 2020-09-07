@@ -17,17 +17,33 @@ let persons = [
 
 // Find the average grade
 
+persons.reduce((a, c) => a + c.grade, 0) / persons.length;
+
 // Find the average grade of male
+
+let malePersons = persons.filter(a => a.sex === "M");
+malePersons.reduce((a, c) => a + c.grade, 0) / malePersons.length;
 
 // Find the average grade of female
 
+let femalePersons = persons.filter(a => a.sex === "F");
+femalePersons.reduce((a, c) => a + c.grade, 0) / femalePersons.length;
+
 // Find the highest grade
+
+persons.reduce((a, c) => a.grade > c.grade ? a : c, 0);
 
 // Find the highest grade in male
 
+malePersons.reduce((a, c) => a.grade > c.grade ? a : c, 0);
+
 // Find the highest grade in female
 
+femalePersons.reduce((a, c) => a.grade > c.grade ? a : c, 0);
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
+persons.filter(a => a.name.startsWith("J") || a.name.startsWith("J")).reduce((a, c) => a.grade > c.grade ? a : c, 0);
 
 const fruitBasket = [
   'banana',
@@ -52,6 +68,13 @@ Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
 
+let fruitsObj = fruitBasket.reduce((a, c) => {
+    if (a[c]) a[c] = a[c] + 1;
+    else a[c] = 1;
+    return a;
+  }, {});
+
+
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -61,6 +84,18 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
+
+// fruitBasket.reduce((a, c, i) => {
+//   if (a.filter(e => e[0]) === c) a.push([c, a[i][1] + 1]);
+//    else a.push([c, 1]);
+//   return a;
+// }, []);
+
+// fruitBasket.reduce((a, c) => {
+//   return a.push([]);
+// }, []);
+
+// Object.keys(fruitsObj).reduce((a, c) =>
 
 const data = [
   [1, 2, 3],

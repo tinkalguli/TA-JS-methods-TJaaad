@@ -43,7 +43,7 @@ femalePersons.reduce((a, c) => a.grade > c.grade ? a : c, 0);
 
 // Find the highest grade for people whose name starts with 'J' or 'P'
 
-persons.filter(a => a.name.startsWith("J") || a.name.startsWith("J")).reduce((a, c) => a.grade > c.grade ? a : c, 0);
+persons.filter(a => a.name.startsWith("J") || a.name.startsWith("P")).reduce((a, c) => a.grade > c.grade ? a : c, 0);
 
 const fruitBasket = [
   'banana',
@@ -85,17 +85,10 @@ Output:
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
 
-// fruitBasket.reduce((a, c, i) => {
-//   if (a.filter(e => e[0]) === c) a.push([c, a[i][1] + 1]);
-//    else a.push([c, 1]);
-//   return a;
-// }, []);
-
-// fruitBasket.reduce((a, c) => {
-//   return a.push([]);
-// }, []);
-
-// Object.keys(fruitsObj).reduce((a, c) =>
+Object.keys(fruitsObj).reduce((a, c) => {
+  a.push([c, fruitsObj[c]]);
+  return a;
+}, []);
 
 const data = [
   [1, 2, 3],
@@ -106,6 +99,11 @@ const data = [
 
 // Using reduce flat data array
 
+data.reduce((a, c) => {
+  a = a.concat(c);
+    return a;
+  }, []);
+
 const dataTwo = [
   [1, 2, 3],
   [4, 5, 6],
@@ -114,6 +112,11 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
+
+dataTwo.reduce((a, c) => {
+  a = a.concat(c.flat(Infinity));
+    return a;
+  }, []);
 
 /*
 
@@ -136,6 +139,26 @@ let pipeline = [
   increment,
 ];
 
+function increment(num) {
+  return ++num;
+}
+
+function double(num) {
+  return num * 2;
+}
+
+function decrement(num) {
+  return --num;
+}
+
+function triple(num) {
+  return num * 3;
+}
+
+function half(num) {
+  return Math.round(num / 2);
+}
+
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
 
@@ -149,6 +172,13 @@ EXAMPLE:
 
   ...
 */
+
+
+pipeline.reduce((a,c) => {
+  a = c(a);
+  return a;
+}, 3);
+
 
 let pipeline2 = [
   increment,
@@ -165,3 +195,8 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+
+pipeline2.reduce((a,c) => {
+  a = c(a);
+  return a;
+}, 8);

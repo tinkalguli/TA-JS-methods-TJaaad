@@ -53,6 +53,8 @@ var customers = [
 ];
 // - Find all customers whose firstname starts with 'J'
 
+
+
 // - Create new array with only first name
 
 // - Create new array with all the full names (ex: "Joe Blogs")
